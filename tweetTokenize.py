@@ -18,8 +18,8 @@ def preprocess_tweet(tweet):
 
 def tokenize_tweets(filename, dest_folder):
     basename = os.path.basename(filename)
-    dest = os.path.join(dest_folder, basename + '.tok')
-    print("processing %s" % basename)
+    dest = os.path.join(dest_folder, f'{basename}.tok')
+    print(f"processing {basename}")
     tknzr = TweetTokenizer()
     with codecs.open(dest, 'w', "utf-8") as out_fs:
         with open(filename, 'r', encoding="utf-8") as in_fs:

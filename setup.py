@@ -18,9 +18,7 @@ sourcefiles  = ['src/sent2vec.pyx',
                 'src/real.cc',
                 'src/productquantizer.cc']
 compile_opts = ['-std=c++0x', '-Wno-cpp', '-pthread', '-Wno-sign-compare']
-libraries = ['rt']
-if sys.platform == 'darwin':
-    libraries = []
+libraries = [] if sys.platform == 'darwin' else ['rt']
 ext=[Extension('*',
             sourcefiles,
             extra_compile_args=compile_opts,

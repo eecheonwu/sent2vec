@@ -55,9 +55,7 @@ SNLP_TAGGER_JAR = "/home/pgupta/stanford-postagger.jar"
 
 sentences = []
 with open(fileName, 'r') as fileinput:
-   for line in fileinput:
-       sentences.append(line)
-
+    sentences.extend(iter(fileinput))
 tknzr = StanfordTokenizer(SNLP_TAGGER_JAR, encoding='utf-8')
 s = ' <delimiter> '.join(sentences)
 tokenized_sentences_SNLP = tokenize_sentences(tknzr, [s])
